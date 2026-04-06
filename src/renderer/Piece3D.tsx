@@ -2,7 +2,6 @@
 
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
-import { useSpring, animated } from "@react-spring/three";
 import * as THREE from "three";
 import { useGameStore } from "@/store/game-store";
 import { squareToPosition } from "@/engine/types";
@@ -22,15 +21,15 @@ function PieceMaterial({ color }: { color: PieceColor }) {
 function PawnMesh({ color }: { color: PieceColor }) {
   return (
     <group>
-      <mesh position={[0, 0.1, 0]} castShadow>
+      <mesh position={[0, 0.1, 0]}>
         <cylinderGeometry args={[0.3, 0.35, 0.2, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.4, 0]} castShadow>
+      <mesh position={[0, 0.4, 0]}>
         <cylinderGeometry args={[0.1, 0.2, 0.4, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.75, 0]} castShadow>
+      <mesh position={[0, 0.75, 0]}>
         <sphereGeometry args={[0.18, 24, 24]} />
         <PieceMaterial color={color} />
       </mesh>
@@ -41,15 +40,15 @@ function PawnMesh({ color }: { color: PieceColor }) {
 function RookMesh({ color }: { color: PieceColor }) {
   return (
     <group>
-      <mesh position={[0, 0.15, 0]} castShadow>
+      <mesh position={[0, 0.15, 0]}>
         <cylinderGeometry args={[0.3, 0.35, 0.3, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.5, 0]} castShadow>
+      <mesh position={[0, 0.5, 0]}>
         <cylinderGeometry args={[0.2, 0.2, 0.4, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.8, 0]} castShadow>
+      <mesh position={[0, 0.8, 0]}>
         <cylinderGeometry args={[0.28, 0.25, 0.2, 4]} />
         <PieceMaterial color={color} />
       </mesh>
@@ -60,15 +59,15 @@ function RookMesh({ color }: { color: PieceColor }) {
 function KnightMesh({ color }: { color: PieceColor }) {
   return (
     <group>
-      <mesh position={[0, 0.15, 0]} castShadow>
+      <mesh position={[0, 0.15, 0]}>
         <cylinderGeometry args={[0.3, 0.35, 0.3, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.5, 0.05]} castShadow>
+      <mesh position={[0, 0.5, 0.05]}>
         <cylinderGeometry args={[0.15, 0.2, 0.4, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.8, 0.1]} rotation={[0.3, 0, 0]} castShadow>
+      <mesh position={[0, 0.8, 0.1]} rotation={[0.3, 0, 0]}>
         <boxGeometry args={[0.2, 0.35, 0.3]} />
         <PieceMaterial color={color} />
       </mesh>
@@ -79,19 +78,19 @@ function KnightMesh({ color }: { color: PieceColor }) {
 function BishopMesh({ color }: { color: PieceColor }) {
   return (
     <group>
-      <mesh position={[0, 0.15, 0]} castShadow>
+      <mesh position={[0, 0.15, 0]}>
         <cylinderGeometry args={[0.3, 0.35, 0.3, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.55, 0]} castShadow>
+      <mesh position={[0, 0.55, 0]}>
         <cylinderGeometry args={[0.12, 0.22, 0.5, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.9, 0]} castShadow>
+      <mesh position={[0, 0.9, 0]}>
         <coneGeometry args={[0.12, 0.3, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 1.1, 0]} castShadow>
+      <mesh position={[0, 1.1, 0]}>
         <sphereGeometry args={[0.06, 16, 16]} />
         <PieceMaterial color={color} />
       </mesh>
@@ -102,19 +101,19 @@ function BishopMesh({ color }: { color: PieceColor }) {
 function QueenMesh({ color }: { color: PieceColor }) {
   return (
     <group>
-      <mesh position={[0, 0.15, 0]} castShadow>
+      <mesh position={[0, 0.15, 0]}>
         <cylinderGeometry args={[0.32, 0.38, 0.3, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.55, 0]} castShadow>
+      <mesh position={[0, 0.55, 0]}>
         <cylinderGeometry args={[0.15, 0.25, 0.5, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.9, 0]} castShadow>
+      <mesh position={[0, 0.9, 0]}>
         <sphereGeometry args={[0.2, 24, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 1.15, 0]} castShadow>
+      <mesh position={[0, 1.15, 0]}>
         <coneGeometry args={[0.08, 0.2, 8]} />
         <PieceMaterial color={color} />
       </mesh>
@@ -125,23 +124,23 @@ function QueenMesh({ color }: { color: PieceColor }) {
 function KingMesh({ color }: { color: PieceColor }) {
   return (
     <group>
-      <mesh position={[0, 0.15, 0]} castShadow>
+      <mesh position={[0, 0.15, 0]}>
         <cylinderGeometry args={[0.32, 0.38, 0.3, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.55, 0]} castShadow>
+      <mesh position={[0, 0.55, 0]}>
         <cylinderGeometry args={[0.15, 0.25, 0.5, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 0.9, 0]} castShadow>
+      <mesh position={[0, 0.9, 0]}>
         <sphereGeometry args={[0.2, 24, 24]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 1.2, 0]} castShadow>
+      <mesh position={[0, 1.2, 0]}>
         <boxGeometry args={[0.06, 0.3, 0.06]} />
         <PieceMaterial color={color} />
       </mesh>
-      <mesh position={[0, 1.3, 0]} castShadow>
+      <mesh position={[0, 1.3, 0]}>
         <boxGeometry args={[0.2, 0.06, 0.06]} />
         <PieceMaterial color={color} />
       </mesh>
@@ -174,15 +173,13 @@ function ChessPiece({
   const selectSquare = useGameStore((s) => s.selectSquare);
   const MeshComponent = PIECE_MESHES[type];
 
-  const { posY } = useSpring({
-    posY: isSelected ? 0.3 : 0,
-    config: { mass: 1, tension: 200, friction: 20 },
-  });
-
   useFrame((state) => {
-    if (isSelected && groupRef.current) {
+    if (!groupRef.current) return;
+    if (isSelected) {
       groupRef.current.position.y =
         0.3 + Math.sin(state.clock.elapsedTime * 3) * 0.05;
+    } else {
+      groupRef.current.position.y = 0;
     }
   });
 
@@ -192,11 +189,9 @@ function ChessPiece({
   };
 
   return (
-    <animated.group
+    <group
       ref={groupRef}
-      position-x={pos.file}
-      position-y={posY}
-      position-z={pos.rank}
+      position={[pos.file, 0, pos.rank]}
       onClick={handleClick}
       onPointerOver={() => {
         document.body.style.cursor = "pointer";
@@ -206,7 +201,7 @@ function ChessPiece({
       }}
     >
       <MeshComponent color={color} />
-    </animated.group>
+    </group>
   );
 }
 
