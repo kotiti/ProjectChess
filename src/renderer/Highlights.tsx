@@ -21,15 +21,18 @@ function HighlightTile({
   const pos = squareToPosition(square);
   return (
     <mesh
-      position={[pos.file, 0.02, pos.rank]}
+      position={[pos.file, 0.05, pos.rank]}
       rotation={[-Math.PI / 2, 0, 0]}
     >
-      <planeGeometry args={[1, 1]} />
+      <planeGeometry args={[0.96, 0.96]} />
       <meshBasicMaterial
         color={color}
         transparent
         opacity={opacity}
         depthWrite={false}
+        polygonOffset
+        polygonOffsetFactor={-1}
+        polygonOffsetUnits={-1}
       />
     </mesh>
   );
@@ -45,7 +48,7 @@ function ValidMoveMarker({
   const pos = squareToPosition(square);
   return (
     <mesh
-      position={[pos.file, 0.03, pos.rank]}
+      position={[pos.file, 0.06, pos.rank]}
       rotation={[-Math.PI / 2, 0, 0]}
     >
       {isCapture ? (
@@ -58,6 +61,9 @@ function ValidMoveMarker({
         transparent
         opacity={0.6}
         depthWrite={false}
+        polygonOffset
+        polygonOffsetFactor={-2}
+        polygonOffsetUnits={-2}
       />
     </mesh>
   );

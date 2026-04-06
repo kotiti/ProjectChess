@@ -17,12 +17,8 @@ function Tile({ x, z, isLight }: { x: number; z: number; isLight: boolean }) {
   };
 
   return (
-    <mesh
-      position={[x, 0, z]}
-      rotation={[-Math.PI / 2, 0, 0]}
-      onClick={handleClick}
-    >
-      <planeGeometry args={[1, 1]} />
+    <mesh position={[x, -0.025, z]} onClick={handleClick}>
+      <boxGeometry args={[0.98, 0.05, 0.98]} />
       <meshStandardMaterial
         color={isLight ? LIGHT_COLOR : DARK_COLOR}
         roughness={0.8}
@@ -34,8 +30,8 @@ function Tile({ x, z, isLight }: { x: number; z: number; isLight: boolean }) {
 
 function BoardFrame() {
   return (
-    <mesh position={[3.5, -0.1, 3.5]}>
-      <boxGeometry args={[9, 0.2, 9]} />
+    <mesh position={[3.5, -0.11, 3.5]}>
+      <boxGeometry args={[9, 0.16, 9]} />
       <meshStandardMaterial color="#5C3A1E" roughness={0.6} metalness={0.2} />
     </mesh>
   );

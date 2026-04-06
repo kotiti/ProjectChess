@@ -9,9 +9,13 @@ import { Pieces3D } from "./Piece3D";
 export function Scene() {
   return (
     <Canvas
-      camera={{ position: [0, 8, 8], fov: 45 }}
+      camera={{ position: [0, 8, 8], fov: 45, near: 0.5, far: 100 }}
       dpr={[1, 2]}
-      gl={{ antialias: true, powerPreference: "default" }}
+      gl={{
+        antialias: true,
+        powerPreference: "default",
+        logarithmicDepthBuffer: true,
+      }}
       style={{ width: "100%", height: "100%" }}
     >
       <ambientLight intensity={0.6} />
